@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            background-color: red;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+   <div id="practice" class="a" onclick="document.getElementById('practice').innerHTML='Javascript practicing'">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam atque velit minus dolorem, dicta maxime saepe adipisci nostrum eum odio reprehenderit facilis quas quo nobis labore, eaque ab quidem natus.
+   </div>
+
+   <button onclick="document.getElementById('practice').style.backgroundColor='aqua'">change color</button>
+   <!-- <button onclick="document.getElementById('practice').innerHTML='Javascript practicing'">Click me </button> -->
+   <button onclick="document.getElementById('practice').style.fontSize='30px'"> Change Font Size</button>
+   <button onclick="document.getElementById('practice').style.display='none'">Click me for hide</button>
+   <button onclick="document.getElementById('practice').style.display='block'">Click me for show </button>
+   <br><br>
+   <button onclick="document.getElementById('img').src='images/k.g.jpeg'">Click for image1 </button>
+
+   <img id="img" src="images/k.g.jpeg" alt="">
+
+   <br><br><button onclick="document.getElementById('img').src='images/playgroup (1).jpeg'">Click for image2 </button>
+   <br><br><button onclick="document.getElementById('img').style.border='10px dotted black'">click me for see borser</button>
+   <br><br><button onclick="document.getElementById('img').height='1000'">Click me for change height</button>
+</body>
+</html>

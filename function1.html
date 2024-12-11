@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo{
+            height:200px;
+            width:200px;
+            background-color: bisque;
+            margin-left:600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo" onmouseover="hover()">
+
+    </div>
+    <button onclick="myname()">click me!</button>
+</body>
+    <script>
+        /*function sum(){
+            let a = 6
+            let b = 7
+            let sum = a+b
+            //return sum
+            document.write(sum)
+        }
+
+        //let display = sum()
+        //document.write(display)
+        sum()*/
+        let reuse = document.getElementById('demo')
+        function myname(){
+            
+            reuse.style.backgroundColor='aqua'
+            reuse.style.border='10px dotted black'
+            reuse.style.height='500px'
+            reuse.style.width='500px'
+        }
+        function hover(){
+            reuse.style.backgroundColor='red'
+            reuse.style.height='200px'
+            reuse.style.width='200px'
+        }
+    </script>
+
+  
+</html>
