@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .container{
+        border:4px solid black; 
+        height:550px;  
+        width:800px;
+        margin-left:250px; 
+        
+        
+    }
+    #heading{
+        text-align:center;
+    }
+    img{
+       display:block;
+        margin-left:auto;
+        margin-right:auto;
+        height:200px;
+    }
+    .horror{
+        border:4px solid black; 
+        height:200px;  
+        width:500px;
+        margin-left:150px; 
+        margin-top:5px;
+        
+    }
+    .story{
+        background-color:aqua;
+        padding:10px;
+        border-radius:10px;
+        display:inline-block;
+        margin-top:20px;
+        font-size:20px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <u><h1 id="heading">Story heading</h1></u>
+        <img src="images/th.jpg" alt=""style="text-align:center;"id="iamage">
+        <div class="horror"id="mine">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, sit assumenda. Ab quis ad possimus et asperiores vitae beatae eos molestiae sapiente non soluta rem esse incidunt libero, a commodi.
+        </div>
+    </div>
+    <button onclick="story1()"class='story' style="margin-left:500px;">Story 1</button>
+    <button onclick="story2()"class='story'>Story 2</button>
+    <button onclick="story3()"class='story'>Story 3</button>
+    <script>
+        let story_dec=`
+            Once upon a time, in a small village nestled deep in the forest, there was an old, abandoned house on the edge of town. The children of the village would often whisper about it, daring each other to get closer to the dark, crumbling building. But no one ever went inside. The house had a strange, eerie feeling, like it was alive. The windows were always dark, and the door creaked even when no one was near.
+
+One rainy afternoon, a curious boy named Oliver decided he was going to solve the mystery of the old house. He had heard stories from his friends about strange shadows that moved behind the windows, and whispers that floated through the air at night. Everyone said the house was haunted, but Oliver didn’t believe in ghosts. He was brave, and he wanted to prove it.
+
+With his flashlight in hand, Oliver crept through the overgrown garden and pushed open the rusty gate. The house loomed ahead, its tall, crooked silhouette casting long shadows in the twilight. As he approached the door, it swung open with a loud creak.
+
+Inside, the air was cold and thick, like the house had been holding its breath for years. Dust hung in the air, and the floorboards groaned under Oliver’s weight as he tiptoed through the dark hallways. The whispers began almost immediately, soft at first, like a breeze rustling through the leaves.
+
+"Come closer... we’re waiting for you..."
+
+Oliver’s heart raced, but he shook his head. "It’s just the wind," he told himself. But then, he heard the voices again, clearer this time.
+
+"You shouldn’t be here. You shouldn’t have come."
+
+Suddenly, the shadows in the corners of the room began to shift. They moved like they had a mind of their own, stretching and curling around Oliver’s feet. He backed away, but they followed, always just out of reach. The air grew colder, and the whispers grew louder.
+
+"Leave now, or stay forever..."
+
+Oliver turned and ran, but no matter how fast he ran, the shadows seemed to chase him. They swirled around him like mist, twisting in the air, blocking his path. He was trapped.
+
+Just as he thought he could run no more, a flash of light filled the room. The door slammed shut behind him, and the shadows stopped moving. In the doorway stood a figure—a tall woman with long, silver hair, glowing faintly in the dim light. Her eyes were kind, but sad.
+
+“Don’t be afraid,” she said softly. “I was once like you. I came here out of curiosity, but the house keeps those who are brave enough to enter. I was trapped for years, until someone finally set me free.”
+
+Oliver’s fear melted away, and he asked, “How do I leave?”
+
+The woman smiled. “You must leave your fear behind, and never come back.”
+
+Oliver nodded, and with a deep breath, he stepped forward. The door swung open on its own, and the shadows seemed to bow away from him. The woman’s figure faded into the darkness, and as Oliver stepped outside, the rain stopped.
+
+The next morning, when the villagers talked about the house, Oliver just smiled and shook his head. They asked him what had happened inside, but he never told them the full story.
+
+From that day on, the old house was never quite as dark, and the whispers could no longer be heard. But the children still played near it, their voices echoing through the air, unaware of the secret that lay hidden inside.
+
+And sometimes, if you listened closely, you could hear the faintest of whispers from the shadows, saying:
+
+"Thank you for setting me free..."
+
+
+
+You said:
+in very short
+ChatGPT said:
+ChatGPT
+In a small village stood an old, haunted house, rumored to whisper at night. One curious boy, Oliver, decided to explore it. Inside, he heard eerie voices warning him to leave. Shadows twisted around him, trapping him in the dark. Just as he was about to give up, a glowing woman appeared and told him the house kept the brave. She helped him escape, warning him to never return. The next morning, the whispers stopped, and the house felt less eerie. Oliver never spoke of what happened, but sometimes, if you listen closely, you can hear a soft voice saying, "Thank you for setting me free."
+
+
+You said:
+give me horror image for kid
+ChatGPT said:
+ChatGPT
+It seems I couldn't generate an image right now. If you'd like, I can try again later or assist you with something else related to the story or images. Just let me know!
+
+
+
+
+            `
+        function story1(){
+          document.getElementById("heading").innerHTML='The Whispering Shadows'
+          document.getElementById("iamage").src='images/images.jpg'
+          document.getElementById("mine").innerHTML=story_dec
+          document.getElementById('mine').style.overflow='scroll'
+          document.getElementById("iamage").style.border='4px solid black'
+          document.getElementById("mine").style.padding='20px'
+        
+        }
+
+        
+        function story2(){
+          document.getElementById("heading").innerHTML='The Magical Garden'
+          document.getElementById("iamage").src='images/download.jpg'
+          document.getElementById("mine").innerHTML=story_dec
+          document.getElementById('mine').style.overflow='scroll'
+          document.getElementById("iamage").style.border='4px solid black'
+          document.getElementById("mine").style.padding='20px'
+        }
+        function story3(){
+          document.getElementById("heading").innerHTML='The Adventure of Leo and the Lost Star'
+          document.getElementById("iamage").src='images/do.jpg'
+          document.getElementById("mine").innerHTML=story_dec
+          document.getElementById('mine').style.overflow='scroll'
+          document.getElementById("iamage").style.border='4px solid black'
+          document.getElementById("mine").style.padding='20px'
+        }
+
+    </script>
+</body>
+</html>
