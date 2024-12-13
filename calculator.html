@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+<style>
+    .styling{
+        border:4px solid black;
+        height:300px;
+        width:300px;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .heading{
+        text-align:center;
+        font-size:40px;
+    }
+    .bot{
+        padding:10px;
+        border:4px;
+        border-radius:20px;
+        background-color:aqua;
+        display:inline;
+        margin-left:100px;   
+        margin-right:auto; 
+    }
+    .bot:hover{
+        background-color:black;
+        color:white;
+        transition-duration:0.8s;
+               
+    }
+</style>
+</head>
+<body>
+    <i><u><h1 class="heading">Calculator</h1></u></i>
+    <div class="styling">
+    <form>
+        First no:<input type="text"placeholder="Enter first number"id="fn"><br>
+        Second no:<input type="text"placeholder="Enter first number"id="sn"><br>
+        Result:<input type="text"id="result"readonly placeholder="0"><br><br>
+        <button type="button" onclick="sum()"class="bot">+</button>
+        <button type="button" onclick="subtraction()"class="bot">-</button>
+        <button type="button" onclick="multiply()"class="bot">x</button>
+        <button type="button" onclick="divide()"class="bot">/</button>
+    </form>
+</div>
+<script>
+
+ 
+    //document.getElementById('name').innerHTML=result
+    function sum(){
+        let fn =parseInt(document.getElementById('fn').value)
+    let sn=parseInt(document.getElementById('sn').value)
+    let result=fn+sn
+    document.getElementById('result').value=result;
+    }
+    function subtraction(){
+        let fn =parseInt(document.getElementById('fn').value)
+    let sn=parseInt(document.getElementById('sn').value)
+    let result=fn-sn
+    document.getElementById('result').value=result;
+    }
+    function multiply(){
+        let fn =parseInt(document.getElementById('fn').value)
+    let sn=parseInt(document.getElementById('sn').value)
+    let result=fn*sn
+    document.getElementById('result').value=result;
+    }
+    function divide(){
+        let fn =parseInt(document.getElementById('fn').value)
+    let sn=parseInt(document.getElementById('sn').value)
+    let result=fn/sn
+    document.getElementById('result').value=result;
+    }
+    
+   
+
+    
+</script>
+</body>
+</html>
