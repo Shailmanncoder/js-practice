@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .div{
+        background-color: aqua;
+        height:500px; 
+         width:500px;  
+         border:2px solid black;
+           
+           
+}
+</style>
+</head>
+<body>
+    <script>
+        let bg = prompt('Enter background color:')
+        let tc = prompt('Enter text color:')
+       function change(bg,tc){
+          
+   
+           document.getElementById('bg').style.backgroundColor=bg
+           document.getElementById('tc').style.color=tc
+   
+       }
+   </script>
+    <div class="div" id="bg">
+        <p id="tc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In illum quos magnam officia animi accusamus? Quibusdam repellendus error id nihil architecto minima delectus quod consectetur praesentium sequi. Excepturi, harum repellendus.</p>
+    </div>
+<button onclick="change(bg,tc)">click for change</button>
+
+
+</body>
+</html>

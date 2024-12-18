@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+  <link rel="icon" href="logo.png">
+<style>
+
+.calculator{
+      box-shadow: 5px 5px 10px #5e5e5e;
+      width:222px;
+      margin-left:830px;
+      margin-top:300px;
+      background-color: black;
+      border:1px solid black;
+      border-radius:10px;
+    
+  
+}
+    .rowsie{
+        display: flex;
+            justify-content: space-between;
+            width: 100%; 
+    }              
+    .bon{ 
+          flex:1;
+           margin: 5px;      
+              height:40px;
+        font-size:1rem;
+        border:none;
+        border-radius:100px;
+        width:50px;
+        background-color:orange;
+        box-shadow: 3px 3px 3px black;
+}
+    .born{
+        width:50px;
+        background-color:grey;
+        border:none;
+        border-radius:100px;
+        height:40px;
+        box-shadow: 3px 3px 3px black;
+    }
+    .born:hover{
+      background-color: #e1e1e1;
+      color:#0d0000;
+      transition:0.6s;
+      cursor:pointer;
+    }
+    .bon:hover{
+      background-color: #e1e1e1;
+      color:#0d0000;
+      transition:0.6s;
+      cursor:pointer;
+    }
+    .heading{
+      text-decoration:underline wavy black;
+      font-style:italic;
+      text-align:center;
+      font-size:40px;
+    }
+    .box{
+      text-align:right;
+      width:210px;height:60px;
+      font-size:50px;
+      border:2px solid black;
+      border-radius:5px;
+      background-color:#e3fae8;
+    }
+    .box:hover{
+        cursor:pointer;
+    }
+    
+    
+    
+</style> 
+</head>
+<body>
+   <h1 class="heading">Calcultor</h1>
+    <div class="calculator">
+      <input type="text"value="0"readonly class="box"id="output">
+        
+      <div class="rowvise">
+        <button class="born">Ac</button>
+        <button class="born">></button>
+        <button class="born" >%</button>
+        <button class="bon">÷</button>
+    </div>
+        <div class="rowise">
+      <button class="born"onclick="a()">7</button>
+      <button class="born">8</button>
+      <button class="born">9</button>
+      <button class="bon">x</button>
+    </div>
+    <div class="rowise"> 
+      <button class="born">4</button>
+      <button class="born">5</button>
+      <button class="born">6</button>
+      <button class="bon">-</button>
+    </div> 
+      <button class="born">1</button>
+      <button class="born">2</button>
+      <button class="born">3</button>
+      <button class="bon">+</button>
+      <div class="rowise">
+        <button class="born">0</button>
+      <button class="born">00</button>
+      <button class="born">.</button>
+      <button class="bon">=</button>
+      </div>
+    </div>
+<!--/(
+  Homework)-->
+</body>
+</html>
