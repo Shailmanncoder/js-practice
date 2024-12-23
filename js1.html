@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p id="demo"></p>
+    <title>Table gernater</title>
     <script >
+        //sir learn all things by chat gpt but not  copy you can check with website
+        window.alert('Do not give space beetwen numbers otherwise it will take first number(Wrong way X(2 2 2 2) Correct way✓(2222))')
+        
         let no=parseInt(prompt('Enter number to make its table !'))
         if(isNaN(no)){
     window.alert('Enter a valid number !')
+    location.reload();
 }
 else{
     let ans =`Table of ${no}:\n`;
-    for(let i=1;i <=10;i++){
+    
+    for(let i=1;i <=10;i=i+1){
         ans += `${no} x ${i} = ${no * i}\n`;
     }
 
     window.alert(ans)
     location.reload();
-//sir by chat gpt
 
 }
 
+</script>
 
-    </script>
-</body>
+</head>
+
 </html>
