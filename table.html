@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    let no=parseInt(prompt('Enter number to make its table'))
+    if(isNaN(no)){
+        window.alert('Enter a valid number')
+       
+    }
+    else{
+        let ans =`Table of ${no}:\n`
+        for(i=1;i<=10;i++){
+            ans+=`${no} ${i} =${no * i}\n`
+        }
+        window.alert(ans);
+       
+    }
+</script>
+</head>
+
+</html>

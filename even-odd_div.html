@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even Numbers</title>
+  <style>
+    .container1 {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function myFunction1() {
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+          document.write(`
+            <div class="container1">
+              ${i} is even
+            </div>
+          `);
+        }
+      } 
+    }
+
+    myFunction1();
+  </script>
+</body>
+</html>

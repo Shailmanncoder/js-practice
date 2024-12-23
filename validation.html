@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* function validateInput() {
+  const userInput = prompt("Enter a number under 100:");
+  
+  if (userInput === null || userInput.trim() === "") {
+    console.log("Error: Input cannot be empty.");
+    return;
+  }
+  
+  const number = Number(userInput);
+  
+  if (isNaN(number)) {
+    console.log("Error: Please enter a valid number.");
+  } else if (number >= 100) {
+    console.log("Error: The number must be less than 100.");
+  } else {
+    console.log("Valid input!");
+  }
+}
+
+// Call the function
+validateInput(); */
+const userInput = prompt("Enter a number under 100:");
+const number = Number(userInput);
+
+if (number < 100 && !isNaN(number)) {
+  console.log("Valid input!");
+} else {
+  console.log("Invalid input. Please enter a number less than 100.");
+}
+45
+    </script>
+</body>
+</html>
