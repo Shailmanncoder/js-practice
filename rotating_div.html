@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Styling for the container1 */
+        .container1 {
+            border: 1px solid black;
+            border-radius: 15px;
+            width: 500px; /* Initially fixed width */
+            height: 500px;
+            float:left;
+            transition: width 1s ease; /* Optional smooth transition for width change */
+        }
+
+        /* Styling for the container2 (initially next to container1) */
+        .container2 {
+            border: 1px solid black;
+            border-radius: 15px;
+            width: 500px; /* Initially fixed width */
+            height: 500px;
+            margin-left: 20px;
+            float: left;
+            transition: all 1s ease; /* Smooth transition for movement and width change */
+        }
+
+        /* Button styling to align above the first container */
+        button {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button aligned above container1 -->
+    <button onclick="moveContainer()">Move Container Below</button>
+    <button onclick="moveContaine()">Refresh</button>
+
+    <!-- Div containers -->
+    <div class="container1" id="container"></div>
+    <div class="container2" id="contain"></div>
+
+
+    <script>
+        function moveContainer() {
+            const container1 = document.getElementById('container');
+            const container2 = document.getElementById('contain');
+            
+            // Change the width of container1 to 100% after the button is clicked
+            container1.style.width = '100%';
+
+            // Move container2 below container1 and make its width 100%
+            container2.style.clear = 'both';  // Ensure container2 moves below container1
+            container2.style.marginTop = '20px'; // Adjust the margin-top as needed
+            container2.style.width = '100%';   // Set the width of container2 to 100%
+           
+        }
+        function moveContaine(){
+        location.reload();    
+        }
+        </script>
+</body>
+</html>
