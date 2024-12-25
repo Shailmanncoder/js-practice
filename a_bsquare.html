@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Operations</title>
+    <script>
+        function wholeSquare() {
+            const a = parseFloat(document.getElementById('inputA').value);
+            const b = parseFloat(document.getElementById('inputB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter valid numbers");
+                document.getElementById('output').value = '';
+            } else {
+                const result = a * a + 2 * a * b + b * b;
+                document.getElementById('output').value = result;
+            }
+        }
+
+        function wholeSquareMinus() {
+            const a = parseFloat(document.getElementById('inputA').value);
+            const b = parseFloat(document.getElementById('inputB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter valid numbers");
+                document.getElementById('output').value = '';
+            } else {
+                const result = a * a - 2 * a * b + b * b;
+                document.getElementById('output').value = result;
+            }
+        }
+
+        function wholeCube() {
+            const a = parseFloat(document.getElementById('inputA').value);
+            const b = parseFloat(document.getElementById('inputB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter valid numbers");
+                document.getElementById('output').value = '';
+            } else {
+                const result = a * a * a + 3 * a * a * b + 3 * a * b * b + b * b * b;
+                document.getElementById('output').value = result;
+            }
+        }
+
+        function wholeCubeMinus() {
+            const a = parseFloat(document.getElementById('inputA').value);
+            const b = parseFloat(document.getElementById('inputB').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Enter valid numbers");
+                document.getElementById('output').value = '';
+            } else {
+                const result = a * a * a - 3 * a * a * b + 3 * a * b * b - b * b * b;
+                document.getElementById('output').value = result;
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById('inputA').value = '';
+            document.getElementById('inputB').value = '';
+            document.getElementById('output').value = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Square and Cube Operations</h1>
+    <div>
+        <label for="inputA">Enter A:</label>
+        <input type="text" id="inputA">
+        <br><br>
+        <label for="inputB">Enter B:</label>
+        <input type="text" id="inputB">
+        <br><br>
+        <label for="output">Result:</label>
+        <input type="text" id="output" readonly>
+        <br><br>
+        <button onclick="wholeSquare()">(A + B)^2</button>
+        <button onclick="wholeSquareMinus()">(A - B)^2</button>
+        <button onclick="wholeCube()">(A + B)^3</button>
+        <button onclick="wholeCubeMinus()">(A - B)^3</button>
+        <button onclick="clearInputs()">Clear</button>
+    </div>
+</body>
+</html>
