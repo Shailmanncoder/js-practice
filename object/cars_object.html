@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Buttons</title>
+    <style>
+       
+        button {
+           background-color: black;
+           border:10px solid black;
+           border-radius:10px;
+           margin-left:150px;
+        }
+
+        
+        .rotate-button {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .rotate-button:hover img {
+            animation: rotate 2s linear infinite; 
+        }
+
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        
+   
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        #container{
+            border:2px solid black;
+            height:400px;
+            width:500px;
+            margin-left:400px;
+            margin-top:60px;
+        }
+        h1{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+        }
+        #images{
+            margin-left:120px;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="container">
+        <button class="rotate-button" onclick="bmw()">
+            <img src="../images/bmw.jfif" height="70px" alt="Mercedes">
+        </button>
+        <button class="rotate-button" onclick="audi()">
+            <img src="../images/audi.jfif" height="70px" alt="BMW">
+        </button>
+        <button class="rotate-button" onclick="lambo()">
+            <img src="../images/lambo.jfif" height="70px" width="80px" alt="Lambo">
+        </button>
+        <button class="rotate-button" onclick="mercedes()">
+            <img src="../images/mercedes.png" height="70px" alt="Audi">
+        </button>
+    </div>
+  
+    <div id="container">
+        <i><u><b><h1 id="heading">Cars</h1></b></u></i>
+        <img src="../images/cars.jfif" alt=""id="images">
+       
+        <p id="paragraph"></p>
+    </div>
+    
+    
+    <script>
+        function bmw() {
+          let bmw={
+           details:``,
+        
+        } 
+        
+        document.getElementById('heading').innerHTML=`Model overview`
+        document.getElementById('paragraph').innerHTML=`<ul><li>The BMW i7 M70 xDrive is a flagship all-electric luxury sedan in BMW's lineup.</li></ul>`
+        }
+        function audi() {
+            
+        }
+        function lambo() {
+            
+        }
+        function mercedes() {
+           
+        }
+    </script>
+</body>
+</html>
