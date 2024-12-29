@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Rubik's Cube</title>
+    <style>
+       body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+#cube {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-45deg);
+    transition: transform 0.5s;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.cubie {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.red { background-color: red; }
+.orange { background-color: orange; }
+.blue { background-color: blue; }
+.green { background-color: green; }
+.yellow { background-color: yellow; }
+.white { background-color: white; }
+
+.front  { transform: translateZ(150px); }
+.back   { transform: rotateY(180deg) translateZ(150px); }
+.left   { transform: rotateY(-90deg) translateZ(150px); }
+.right  { transform: rotateY(90deg) translateZ(150px); }
+.top    { transform: rotateX(90deg) translateZ(150px); }
+.bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+    </style>
+</head>
+<body>
+    <div id="cube">
+        <!-- Front Face -->
+        <div class="face front">
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+            <div class="cubie red"></div>
+        </div>
+        <!-- Back Face -->
+        <div class="face back">
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+            <div class="cubie orange"></div>
+        </div>
+        <!-- Left Face -->
+        <div class="face left">
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+            <div class="cubie green"></div>
+        </div>
+        <!-- Right Face -->
+        <div class="face right">
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+            <div class="cubie blue"></div>
+        </div>
+        <!-- Top Face -->
+        <div class="face top">
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+            <div class="cubie white"></div>
+        </div>
+        <!-- Bottom Face -->
+        <div class="face bottom">
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+            <div class="cubie yellow"></div>
+        </div>
+    </div>
+    <script>
+        let xRotation = -30;
+let yRotation = -45;
+
+const cube = document.getElementById('cube');
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight') yRotation += 90;
+    if (event.key === 'ArrowLeft') yRotation -= 90;
+    if (event.key === 'ArrowDown') xRotation += 90;
+    if (event.key === 'ArrowUp') xRotation -= 90;
+    cube.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+});
+
+    </script>
+</body>
+</html>

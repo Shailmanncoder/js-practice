@@ -10,7 +10,7 @@
            background-color: black;
            border:10px solid black;
            border-radius:10px;
-           margin-left:150px;
+           margin-left:200px;
         }
 
         
@@ -43,8 +43,10 @@
             border:2px solid black;
             height:400px;
             width:500px;
-            margin-left:400px;
-            margin-top:60px;
+            margin-left:500px;
+            margin-top:80px;
+            overflow:scroll;
+            box-sizing:border-box;
         }
         h1{
             display:flex;
@@ -53,7 +55,9 @@
             font-size:30px;
         }
         #images{
-            margin-left:120px;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
         }
     </style>
 </head>
@@ -78,29 +82,26 @@
         <i><u><b><h1 id="heading">Cars</h1></b></u></i>
         <img src="../images/cars.jfif" alt=""id="images">
        
-        <p id="paragraph"></p>
+        <p id="paragraph">An automobile is a usually four-wheeled vehicle designed primarily for passenger transportation and commonly propelled by an internal-combustion engine using a volatile fue</p>
     </div>
     
     
     <script>
         function bmw() {
-          let bmw={
-           details:``,
+           const details={
+            heading:"BMW i7xdrive",
+            img: "../images/bmw.jfif",
+            paragraph:``
+           }
+
         
-        } 
-        
-        document.getElementById('heading').innerHTML=`Model overview`
-        document.getElementById('paragraph').innerHTML=`<ul><li>The BMW i7 M70 xDrive is a flagship all-electric luxury sedan in BMW's lineup.</li></ul>`
-        }
-        function audi() {
+        document.getElementById('heading').innerHTML=details.heading
+        document.getElementById('images').src = details.img
+        document.getElementById('paragraph').innerHTML=details.paragraph
             
         }
-        function lambo() {
-            
-        }
-        function mercedes() {
-           
-        }
+     
     </script>
 </body>
 </html>
+yy

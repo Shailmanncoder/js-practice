@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hindi Voice Typing with Abuse Filtering</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    textarea {
+      width: 80%;
+      height: 200px;
+      font-size: 18px;
+      margin-top: 20px;
+      line-height: 1.5;
+      resize: none;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      white-space: pre-wrap; /* Ensures line wrapping */
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hindi Voice Typing with Abuse Filtering</h1>
+  <textarea id="textbox" placeholder="Your Hindi voice will appear here..." readonly></textarea>
+  <br>
+  <button id="start">Start Voice Typing</button>
+  <button id="stop">Stop Voice Typing</button>
+
+  <script>
+    const textbox = document.getElementById("textbox");
+    const startBtn = document.getElementById("start");
+    const stopBtn = document.getElementById("stop");
+
+    let recognition;
+    let inactivityTimer; // Tracks inactivity
+
+    // List of abusive words to filter (both Hindi and English)
+    const abusiveWords = [
+      "गाली1", "गाली2", "abuse1", "abuse2", // Replace with actual abusive words
+      "badword1", "badword2", "गंदा", "भद्दा"
+    ];
+
+    if ('webkitSpeechRecognition' in window) {
+      recognition = new webkitSpeechRecognition();
+      recognition.continuous = true; // Continuous recognition for real-time typing
+      recognition.interimResults = false; // Finalized results only
+      recognition.lang = "hi-IN"; // Recognize Hindi
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[event.resultIndex][0].transcript.trim(); // Capture final result
+        const filteredText = filterAbusiveWords(transcript); // Filter abusive words
+        const formattedText = applySmartGrammar(filteredText); // Apply smart grammar
+
+        // Append recognized text to the current line
+        textbox.value = (textbox.value.trim() + " " + formattedText).trim();
+
+        // Reset inactivity timer
+        resetInactivityTimer();
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        textbox.value += "\nError: Please try again.\n";
+        stopRecognition(); // Stop recognition on error
+      };
+    } else {
+      alert("Your browser does not support speech recognition.");
+    }
+
+    // Start recognition
+    startBtn.addEventListener("click", () => {
+      if (recognition) {
+        recognition.start();
+        textbox.value = textbox.value.trim() + "\nListening...\n"; // Retain previous text
+        resetInactivityTimer(); // Start inactivity timer
+      }
+    });
+
+    // Stop recognition
+    stopBtn.addEventListener("click", stopRecognition);
+
+    function stopRecognition() {
+      if (recognition) {
+        recognition.stop();
+        clearTimeout(inactivityTimer); // Clear inactivity timer
+        textbox.value += "\nVoice typing stopped.\n";
+      }
+    }
+
+    // Reset inactivity timer
+    function resetInactivityTimer() {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        stopRecognition(); // Stop recognition after 8 seconds of inactivity
+        textbox.value += "\nStopped due to inactivity.\n";
+      }, 8000); // 8 seconds timeout
+    }
+
+    // Function to filter abusive words
+    function filterAbusiveWords(text) {
+      const wordRegex = new RegExp(`\\b(${abusiveWords.join("|")})\\b`, "gi");
+      return text.replace(wordRegex, "***"); // Replace abusive words with ***
+    }
+
+    // Smart Grammar Corrections
+    function applySmartGrammar(text) {
+      // Add commas for lists
+      text = text.replace(/(मोहन|सोहन|रोहन|रॉबिन)(\s|,)*(?=(मोहन|सोहन|रोहन|रॉबिन))/g, "$1, ");
+
+      // Add question mark for questions
+      text = text.replace(/(क्या|क्यों|कैसे|कहाँ|कब|कौन|किसने|कितना)(.*)(\s|$)/, "$1$2?");
+
+      // Add full stop if the sentence ends without punctuation
+      if (!text.endsWith("।") && !text.endsWith(".") && !text.endsWith("?")) {
+        text += "।";
+      }
+
+      // Remove extra spaces before punctuation
+      text = text.replace(/\s+([।,?])/g, "$1");
+
+      // Return the corrected text
+      return text.trim();
+    }
+  </script>
+</body>
+</html>
