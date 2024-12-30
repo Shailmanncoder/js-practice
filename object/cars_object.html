@@ -64,6 +64,12 @@
             gap:20px;
             word-spacing:0.5em;
         }
+        #contain{
+            height:400px;
+            width:400px;
+            border:2px solid black;
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +94,9 @@
         <p id="paragraph">An automobile is a usually four-wheeled vehicle designed primarily for passenger transportation and commonly propelled by an internal-combustion engine using a volatile fue</p>
     </div>
     
-    
+    <div id="contain">
+        <img src="../images/bmw.jfif" alt="">
+    </div>
     <script>
         function bmw() {
            const details={
@@ -201,6 +209,10 @@ This narrative could continue indefinitely, exploring every nuance of the V12 hy
     
     
     
+    }
+    function changeImage(){
+       document.getElementById('contain').style.display="block"
+        document.getElementById('images').src="../images/bmw.jfif"
     }
     </script>
 </body>
