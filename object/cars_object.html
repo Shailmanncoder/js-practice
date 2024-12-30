@@ -43,7 +43,7 @@
             border:2px solid black;
             height:400px;
             width:500px;
-            margin-left:500px;
+            margin-left:400px;
             margin-top:80px;
             overflow:scroll;
             box-sizing:border-box;
@@ -59,6 +59,11 @@
             margin-left:auto;
             margin-right:auto;
         }
+        #paragraph{
+            padding-top:40px;
+            gap:20px;
+            word-spacing:0.5em;
+        }
     </style>
 </head>
 <body>
@@ -73,14 +78,12 @@
         <button class="rotate-button" onclick="lambo()">
             <img src="../images/lambo.jfif" height="70px" width="80px" alt="Lambo">
         </button>
-        <button class="rotate-button" onclick="mercedes()">
-            <img src="../images/mercedes.png" height="70px" alt="Audi">
-        </button>
+        
     </div>
   
-    <div id="container">
+    <div id="container"style="display:none">
         <i><u><b><h1 id="heading">Cars</h1></b></u></i>
-        <img src="../images/cars.jfif" alt=""id="images">
+        <img src="../images/cars.jfif" alt=""id="images"onclick="changeImage()">
        
         <p id="paragraph">An automobile is a usually four-wheeled vehicle designed primarily for passenger transportation and commonly propelled by an internal-combustion engine using a volatile fue</p>
     </div>
@@ -91,17 +94,114 @@
            const details={
             heading:"BMW i7xdrive",
             img: "../images/bmw.jfif",
-            paragraph:``
+            paragraph:`
+The BMW i7 xDrive takes electric vehicles to a new level of sophistication, merging the innovation of BMW's electric powertrains with the luxury and elegance that define the 7 Series. It positions itself as a top-tier choice in the growing market of luxury EV sedans, competing with the likes of the Mercedes-Benz EQS and Tesla Model S.
+
+The heart of the i7 xDrive is its dual-motor all-wheel-drive system, which delivers a seamless and powerful driving experience. With a total output of 536 horsepower and 549 lb-ft of torque, the car balances power with refinement. Its performance capabilities are not just about speed; the adaptive air suspension and precise steering ensure a ride that is both dynamic and composed, whether on winding roads or highways.
+
+One of the standout features of the i7 xDrive is its battery technology. The large 101.7 kWh battery not only offers an impressive range of up to 311 miles but also integrates intelligent thermal management systems to optimize performance in various conditions. With fast-charging capability, the i7 can regain approximately 80 miles of range in just 10 minutes, making it practical for long journeys.
+
+Inside the cabin, BMW has focused on creating an immersive environment that feels more like a private lounge than a traditional car interior. The curved display combines the instrument cluster and infotainment system in a minimalist yet highly functional design. Rear passengers enjoy unparalleled luxury, especially with the optional Executive Lounge package, which includes adjustable reclining seats, massaging features, and a high-definition 31.5-inch "Theatre Screen." This rear display transforms the car into a mobile cinema when paired with the Bowers & Wilkins Diamond Surround Sound System.
+
+BMW has also integrated the latest in driver assistance technology. The i7 xDrive is equipped with advanced systems such as automated parking, hands-free driving capabilities on certain highways, and an augmented reality display to enhance navigation. The emphasis on safety and ease of use reflects BMW’s commitment to innovation.
+
+The exterior of the i7 xDrive maintains a stately and commanding presence, with a distinctive illuminated kidney grille and slim, elegant headlights. While the design is modern, it remains understated, ensuring the vehicle exudes timeless luxury rather than fleeting trends.
+
+In the broader context of BMW’s goals, the i7 xDrive signifies the brand’s shift toward electrification, aiming to achieve a significant reduction in carbon emissions. Sustainability extends to its production, with BMW using renewable energy and recycled materials throughout the manufacturing process.
+
+The i7 xDrive is more than just a car; it’s a statement of how luxury and sustainability can coexist without compromise. It sets a new benchmark for what customers can expect from a high-end electric sedan, making it a flagship model for the future of mobility.`
            }
 
-        
+        document.getElementById('container').style.display='block'
         document.getElementById('heading').innerHTML=details.heading
         document.getElementById('images').src = details.img
         document.getElementById('paragraph').innerHTML=details.paragraph
-            
+       
         }
-     
+        function audi(){
+            const detail={
+                heading:"Audi Q6 e-tron",
+                img:"../images/audi.jfif",
+                paragraph:`The Audi Q6 e-tron represents a significant milestone for Audi as the brand moves toward an all-electric future. Built on the innovative Premium Platform Electric (PPE) architecture, which Audi co-developed with Porsche, the Q6 e-tron merges cutting-edge technology with luxury and performance. This platform is designed to elevate the electric driving experience, providing impressive range capabilities, fast charging, and dynamic handling. Positioned as a luxury electric SUV, the Q6 e-tron combines the brand’s signature design language with the benefits of electric mobility.
+
+One of the standout features of the Audi Q6 e-tron is its 800-volt electrical architecture, which allows for ultra-fast charging. This system supports charging speeds of up to 270 kW, meaning drivers can add approximately 158 miles of range in just 10 minutes. This feature is particularly appealing for those who need to make long trips without lengthy charging stops. The base model offers a range of up to 381 miles, while the high-performance SQ6 variant achieves a slightly lower but still impressive range of up to 357 miles, depending on the configuration.
+
+The design of the Q6 e-tron strikes a balance between familiarity and innovation. While it retains the classic Audi SUV aesthetic, the closed front grille and aerodynamic refinements make it clear that this is a fully electric vehicle. Slim LED headlights and clean body lines contribute to a sleek, modern look, while the large wheels and bold stance give it a commanding presence on the road. Audi’s designers have ensured that the Q6 e-tron remains true to the brand’s premium identity while embracing the technological advancements of electric vehicles.
+
+Inside the cabin, the Q6 e-tron offers a luxurious and high-tech environment. The dashboard features Audi’s virtual cockpit, an 11.9-inch fully digital instrument cluster that provides critical driving information with exceptional clarity. A 14.5-inch OLED touchscreen dominates the center console, offering an intuitive interface for navigation, media, and vehicle settings. The interior materials are of the highest quality, with sustainable options available, reflecting Audi’s commitment to environmental responsibility. The spacious cabin ensures comfort for all passengers, while clever storage solutions enhance practicality.
+
+Performance is another key highlight of the Q6 e-tron. The base Quattro Sport variant is equipped with dual motors that produce a combined 383 horsepower, allowing for a 0-60 mph acceleration time of 5.9 seconds. For those seeking more excitement, the SQ6 variant delivers 483 horsepower and sprints from 0-60 mph in just 4.3 seconds. The dynamic handling and adaptive air suspension ensure a smooth and responsive driving experience, whether on city streets or winding roads.
+
+The Q6 e-tron also features a suite of advanced driver assistance systems designed to enhance safety and convenience. These include adaptive cruise control, lane-keeping assist, and automated parking. Audi’s focus on technology extends to over-the-air updates, which allow the vehicle to receive software upgrades remotely, ensuring that the Q6 e-tron stays at the forefront of innovation throughout its lifecycle.
+
+In terms of sustainability, the Q6 e-tron aligns with Audi’s broader commitment to reducing its environmental impact. The vehicle is manufactured using renewable energy and incorporates recycled materials wherever possible. Audi aims to achieve carbon neutrality across its production processes, and the Q6 e-tron plays a significant role in this vision. By transitioning to electric mobility, Audi is addressing the growing demand for eco-friendly transportation options while maintaining the luxury and performance that customers expect.
+
+The Q6 e-tron is not just a car; it’s a statement of Audi’s direction in the automotive industry. It bridges the gap between the brand’s combustion-engine legacy and its electric future, offering a product that appeals to both traditional Audi enthusiasts and new customers drawn to the benefits of electric vehicles. As Audi continues to expand its electric lineup, the Q6 e-tron sets a benchmark for what is possible in terms of design, technology, and sustainability.
+
+Overall, the Audi Q6 e-tron embodies the brand’s ethos of progress through technology. It is a vehicle that doesn’t compromise, delivering luxury, performance, and environmental responsibility in a single package. Whether navigating urban streets or embarking on long journeys, the Q6 e-tron offers a driving experience that is as enjoyable as it is forward-thinking. With its advanced features and commitment to innovation, the Q6 e-tron is poised to become a flagship model in Audi’s transition to an electric future.
+
+
+
+
+
+
+`,
+            } 
+  
+    
+    document.getElementById('container').style.display="block"
+    document.getElementById('heading').innerHTML=detail.heading
+    document.getElementById('images').src=detail.img
+    document.getElementById('paragraph').innerHTML=detail.paragraph
+
+        }
+     function lambo(){
+        const about={
+            heading:"The V12 Hybrid Powertrain",
+            img:"../images/lambo.jfif",
+            paragraph:`To embark on a journey of crafting a narrative about Lamborghini’s groundbreaking V12 hybrid powertrain in ten crore words would be an epic odyssey of storytelling, one that transcends the boundaries of automotive engineering and enters the realms of art, science, history, emotion, and futurism. This tale would weave together the threads of innovation, passion, and precision, exploring every conceivable angle of this masterpiece in unparalleled detail. Let us begin.
+
+The story of Lamborghini’s V12 hybrid powertrain does not start with the Revuelto; it begins decades ago in the fiery imagination of Ferruccio Lamborghini. The V12 engine, born in the 1960s with the Lamborghini 350 GT, was a daring challenge to the world of performance cars, a defiance against the status quo. This engine was not just a mechanical entity; it was an artistic expression, a bold declaration of what could be achieved when ambition was paired with ingenuity.
+
+Fast forward to the present day, and the V12 powerplant stands as a symbol of Lamborghini’s unyielding pursuit of perfection. The Revuelto, Lamborghini's latest hybrid marvel, carries forward this legacy, yet transforms it in ways that were once deemed unimaginable. By integrating a naturally aspirated V12 engine with three electric motors and a high-performance lithium-ion battery, Lamborghini has created a powertrain that transcends the limitations of traditional internal combustion engines while preserving their visceral allure.
+
+The naturally aspirated 6.5-liter V12 engine at the heart of this powertrain is a triumph of mechanical engineering. Unlike turbocharged or supercharged engines that rely on forced induction, this V12 breathes freely, delivering power in a linear, unadulterated manner. Its roar is a symphony of precision and power, a sound that has defined Lamborghini’s identity for decades. Yet in the Revuelto, this roar is complemented by the silent, instantaneous torque of electric motors, creating a harmonious blend of old and new.
+
+The three electric motors in the Revuelto are strategically placed to optimize performance and efficiency. Two are mounted on the front axle, providing independent torque control to each front wheel. This innovation not only enhances traction and stability but also allows for torque vectoring—a sophisticated system that dynamically distributes power between the wheels to maximize cornering performance. The third motor, integrated into the gearbox, works in tandem with the V12 engine to drive the rear wheels. Together, these motors contribute to a combined output of 1,001 horsepower, making the Revuelto one of the most powerful production cars ever built.
+
+Central to this hybrid system is a high-performance lithium-ion battery, housed within the central tunnel of the car. This placement is not arbitrary; it is a carefully considered decision that ensures optimal weight distribution and a low center of gravity. The battery’s capacity and power delivery are engineered to complement the V12 engine, providing instantaneous torque for rapid acceleration and seamless energy recovery during braking.
+
+The marriage of combustion and electrification in the Revuelto’s powertrain is orchestrated by a sophisticated control system. This system acts as the conductor of a mechanical orchestra, ensuring that the V12 engine and electric motors work in perfect harmony. Whether the car is operating in full electric mode for quiet, zero-emission driving or unleashing its combined power for a blistering track performance, the transition is seamless and intuitive.
+
+To fully appreciate the genius of Lamborghini’s hybrid powertrain, one must delve into the intricate details of its construction. The V12 engine is crafted using lightweight materials such as aluminum and magnesium, reducing weight without compromising strength. Its combustion chambers are meticulously designed to optimize airflow and fuel mixture, achieving unparalleled efficiency and power output. Meanwhile, the electric motors are compact yet powerful, utilizing advanced magnet technology to deliver exceptional torque and energy efficiency.
+
+The gearbox, an eight-speed dual-clutch automatic, is another marvel of engineering. Mounted transversely behind the engine, it not only saves space but also contributes to the car’s balanced weight distribution. This gearbox is capable of lightning-fast gear changes, ensuring that the immense power of the hybrid system is delivered to the wheels with minimal delay.
+
+The thermal management system of the Revuelto’s powertrain is equally impressive. Managing the heat generated by a high-performance V12 engine and electric motors is no small feat. Lamborghini has employed advanced cooling technologies, including dedicated circuits for the engine, motors, and battery. These systems work in unison to maintain optimal operating temperatures, ensuring consistent performance even under the most demanding conditions.
+
+The impact of the V12 hybrid powertrain extends beyond its technical brilliance. It represents a shift in Lamborghini’s philosophy, a commitment to sustainability without sacrificing the raw emotion that defines its cars. By embracing hybrid technology, Lamborghini is addressing the environmental challenges of the modern era while staying true to its heritage.
+
+The sound of the Revuelto is a testament to this philosophy. While the electric motors operate silently, the V12 engine roars with unbridled intensity. This combination creates a unique auditory experience, one that bridges the gap between the past and the future. It is a sound that stirs the soul, reminding drivers why they fell in love with cars in the first place.
+
+The cultural significance of Lamborghini’s V12 hybrid powertrain cannot be overstated. It is a symbol of progress, a beacon of hope for those who believe that performance and sustainability can coexist. It challenges the notion that the transition to electric mobility must come at the expense of excitement and passion. Instead, it offers a vision of a future where cars are not just machines but works of art and engineering marvels.
+
+This narrative could continue indefinitely, exploring every nuance of the V12 hybrid powertrain’s design, performance, and impact. From the chemistry of its battery cells to the aerodynamics of its cooling systems, every detail is a story in itself. If you wish, I can delve even deeper into specific aspects, expanding this tale into an even more comprehensive exploration. Let me know where you'd like me to focus next.
+
+
+
+
+
+
+`,
+        }
+        document.getElementById('container').style.display="block"
+        document.getElementById('heading').innerHTML=about.heading
+        document.getElementById('images').src=about.img
+        document.getElementById('paragraph').innerHTML=about.paragraph
+    
+    
+    
+    }
     </script>
 </body>
 </html>
-yy
