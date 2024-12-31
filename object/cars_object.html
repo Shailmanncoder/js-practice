@@ -43,16 +43,24 @@
             border:2px solid black;
             height:400px;
             width:500px;
-            margin-left:400px;
+            margin-left:100px;
             margin-top:80px;
             overflow:scroll;
             box-sizing:border-box;
+            float:left;
+            cursor:pointer;
         }
         h1{
             display:flex;
             justify-content:center;
             align-items:center;
             font-size:30px;
+        }
+        #hea{
+            margin-right:200px;
+        }
+        #he{
+            margin-right:200px;
         }
         #images{
             display:block;
@@ -65,10 +73,29 @@
             word-spacing:0.5em;
         }
         #contain{
-            height:400px;
-            width:400px;
+            height:380px;
+            width:500px;
             border:2px solid black;
             display:none;
+            float:left;
+            margin-top:85px ;
+            margin-left: 44px;
+            overflow:scroll;
+            
+            
+        }
+        #hh{
+            font-size: 60px;
+            float:left;
+            margin-left:20px;
+            margin-top:200px;
+            display: none;
+            
+            
+        }
+        #head{
+            margin-right: 200px;
+            
         }
     </style>
 </head>
@@ -93,9 +120,14 @@
        
         <p id="paragraph">An automobile is a usually four-wheeled vehicle designed primarily for passenger transportation and commonly propelled by an internal-combustion engine using a volatile fue</p>
     </div>
-    
+    <strong><span id="hh">→</span></strong>
     <div id="contain">
-        <img src="../images/bmw.jfif" alt="">
+        <img src="../images/bmw.jfif" alt=""id="myImages">
+        <h1 id="head"></h1>
+        <img src="../images/bmw.jfif" alt=""id="myImage"style="display:none">
+        <h1 id="hea"></h1>
+        <img src="../images/bmw.jfif" alt=""id="myImag"style="display:none">
+        <h1 id="he"></h1>
     </div>
     <script>
         function bmw() {
@@ -121,6 +153,7 @@ The i7 xDrive is more than just a car; it’s a statement of how luxury and sust
            }
 
         document.getElementById('container').style.display='block'
+        
         document.getElementById('heading').innerHTML=details.heading
         document.getElementById('images').src = details.img
         document.getElementById('paragraph').innerHTML=details.paragraph
@@ -212,7 +245,19 @@ This narrative could continue indefinitely, exploring every nuance of the V12 hy
     }
     function changeImage(){
        document.getElementById('contain').style.display="block"
-        document.getElementById('images').src="../images/bmw.jfif"
+       document.getElementById('hh').style.display='block'
+        
+       document.getElementById('myImages').src="../images/i7 xdive.jfif"
+        document.getElementById('myImage').src="../images/images.jfif"
+         document.getElementById('myImage').style.display="block"
+         document.getElementById('hea').innerText="i7 x drive"
+       document.getElementById('myImages').style.marginLeft="20px"
+       document.getElementById('myImages').style.marginTop="20px"
+       document.getElementById('head').innerText="i7 x drive"
+        document.getElementById('myImag').style.display="block"
+         document.getElementById('myImag').src="../images/hey.jfif"
+         document.getElementById('he').innerText="i7 x drive"
+    
     }
     </script>
 </body>
