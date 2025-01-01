@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .container{
+        height:300px;
+        width:650px;
+        box-sizing:border-box;
+        border:2px solid black;
+       
+    }
+    img{
+        height:200px;
+        width:200px;
+    }
+    #output{
+        height:300px;
+        width:650px;
+        box-sizing:border-box;
+        border:2px solid black;
+        margin-top: 40px;
+        
+    }
+    button{
+        float:center;
+        margin-left:800px;
+        margin-right: auto;
+        display:block;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="../images/calculator.gif" alt=""class="image">
+    <img src="../images/hey.jfif" alt="">
+    <img src="../images/do.jpg" alt="">
+   
+</div>
+<button onclick="clickImage()">Click me !</button>
+<!-- <div id="box"></div> -->
+<div id="output"></div>
+
+<script>
+function clickImage(){
+    /* const img=document.getElementsByTagName('img')
+    document.write(img[1].src) */
+    const img = document.getElementsByTagName('img'); // Get all <img> elements
+const outputDiv = document.getElementById('output'); // Get the output div
+
+// Check if the second image exists
+if (img.length > 1 && img[1].src) {
+    // Create a new div to hold the second image
+    const newDiv = document.createElement('div');
+    newDiv.textContent = `Second image src: ${img[1].src}`; // Add the src as text
+
+    // Create a new <img> element to display the second image
+    const newImage = document.createElement('img');
+    newImage.src = img[1].src; // Set the src of the new image
+    newImage.alt = "Second Image"; // Add alt text for accessibility
+    newImage.style.border = "2px solid green"; // Add a border to make it visible
+
+    // Append the text and the image to the new div
+    newDiv.appendChild(newImage);
+
+    // Append the new div to the output div
+    outputDiv.appendChild(newDiv);
+} else {
+    outputDiv.textContent = "Second image not found or src is undefined.";
+}
+
+
+
+
+}
+</script>
+</body>
+</html>
