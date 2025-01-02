@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=kk, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .mainContainer{
+        height:400px;
+        width:400px;
+        border:4px solid black ;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 200px;
+    }
+</style>
+</head>
+<body>
+  <p>Hello world !</p>
+  <p>Coder be like a coder.</p>
+  <p>Shailmann and alisha .</p>
+  <p class="intro">Hello I am coder .</p>
+  <p class="intro">Goodbye ! see you soon </p>
+  <p class="intro"> Hey ! I got a secret !</p>
+    <p id="main"></p>  
+    <button onclick="onClick()">Click here !</button>
+    <div class="mainContainer" id="mainContainer">
+        <ul style="display: none;" id="ul">
+            <li id="add"></li>
+        </ul>
+    </div>
+    <script>
+        function onClick(){
+        let intro =document.querySelectorAll('p.intro')
+        
+        let text="";
+        for (let i = 0; i < intro.length; i++) {
+            //document.write(intro[i].innerHTML + '<br>')
+              //intro[i].innerHTML + '<br>';
+              document.getElementById("ul").style.display='block'
+              document.getElementById("add").innerHTML=intro[i].innerHTML + '<br>'
+              
+        }
+//document.getElementById("forIntro").innerHTML =   text;
+        }
+    </script>
+</body>
+</html>

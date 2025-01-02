@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hello world!</p>
+<p>Coder be like a coder.</p>
+<p>Shailmann and Alisha.</p>
+<p class="intro">Hello, I am a coder.</p>
+<p class="intro">Goodbye! See you soon.</p>
+<p class="intro">Hey! I got a secret!</p>
+<p id="main"></p>  
+<button onclick="onClick()">Click here!</button>
+<div class="mainContainer" id="mainContainer" style="border: 2px solid black;">
+    <ul style="display: none;" id="ul"></ul>
+</div>
+<script>
+    function onClick() {
+        let intro = document.querySelectorAll('p.intro');
+        let ulElement = document.getElementById("ul");
+
+        // Make the UL visible
+        ulElement.style.display = 'block';
+
+        // Clear existing content
+        ulElement.innerHTML = '';
+
+        // Add each intro paragraph as a list item
+        for (let i = 0; i < intro.length; i++) {
+            let li = document.createElement('li');
+            li.innerHTML = intro[i].innerHTML;
+            ulElement.appendChild(li);
+        }
+    }
+</script>
+
+</body>
+</html>

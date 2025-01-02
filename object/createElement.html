@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 2px solid red;
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let btn = document.createElement('button')
+        btn.textContent='Submit'
+        //btn.onclick=al()
+        document.body.appendChild(btn)
+        //document.write(btn)
+        function al(){
+            window.alert('hi')
+        }
+
+        let div = document.createElement('div')
+        div.className='container'
+        document.body.appendChild(div)
+    </script>
+</body>
+</html>
