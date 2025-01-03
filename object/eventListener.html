@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Event Listeners</title>
+</head>
+<body>
+    <button id="myButton">Click or Hover Over Me</button>
+
+    <script>
+        const button = document.getElementById("myButton");
+
+        // Event listener for click
+        button.addEventListener("click", () => {
+            console.log("Button was clicked!");
+        });
+
+        // Event listener for mouseover
+        button.addEventListener("mouseover", () => {
+            console.log("Mouse is hovering over the button!");
+        });
+
+        // Event listener for mouseout
+        button.addEventListener("mouseout", () => {
+            console.log("Mouse has left the button!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        /* .container{
+            border:4px solid black;
+            height:400px;
+            width:400px;
+
+        } */
+    </style>
+</head>
+<body>
+   
+    <script>
+       const elemente= document.createElement('div')
+       
+       elemente.id='container'
+       elemente.style.border='2px solid black'
+       elemente.style.height='400px'
+       elemente.style.width='400px' 
+       /* document.getElementById('container').style.border='2px solid black'
+         document.getElementById('container').style.height='400px'
+          document.getElementById('container').style.width='400px'  */
+          document.body.appendChild(elemente)
+          const images=['../images/bmw.jfif','../images/audi.jfif','../images/i7x dive.jfif','../images/mercedes.png']
+      for(let a=0;a<images.length;a++){
+            let image=document.createElement('img')
+            image.src=images[a]
+            elemente.appendChild(image) 
+            //document.write(images)
+      }
+     
+      // Create a div element
+/* const elemente = document.createElement('div');
+elemente.id = 'container';
+elemente.style.border = '2px solid black';
+elemente.style.height = '400px';
+elemente.style.width = '400px';
+document.body.appendChild(elemente);  */
+
+// Image array
+//const images = ['../images/bmw.jfif', '../images/audi.jfif', '../images/i7x dive.jfif', '../images/mercedes.png'];
+
+// Loop to create and append images
+/* for (let a = 0; a < images.length; a++) {
+    let image = document.createElement('img');
+    image.src = images[a];
+    image.style.width = '100%'; // Optional: adjust image size
+    image.style.display = 'block'; // Optional: stack images vertically
+    elemente.appendChild(image); // Append image to the container
+}
+ */
+     
+    </script>
+</body>
+</html>

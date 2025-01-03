@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="eventlistner.js"></script> -->
+</head>
+<body>
+    <p id="hello" tabindex="0">Hello</p>
+
+    <!-- <script>
+      const paragraph = document.getElementById("hello");
+    
+      // Event listener for keyup
+      paragraph.addEventListener('keyup', hello);
+    
+      // Event listener for keydown
+      paragraph.addEventListener('keydown', hello_mouse);
+    
+      function hello() {
+        window.alert('Hello, this is the "keyup" event I am listening to.');
+      }
+    
+      function hello_mouse() {
+        window.alert('Hello, this is the "keydown" event I am listening to.');
+      }
+    </script> -->
+    <p id="hello" tabindex="0">Press Left or Right Arrow Key</p>
+
+<script>
+  const paragraph = document.getElementById("hello");
+
+  // Make the element focusable by adding tabindex
+  paragraph.tabIndex = 0;
+
+  // Event listener for keydown to detect arrow keys
+  paragraph.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      window.alert('You pressed the Left Arrow key!');
+    } else if (event.key === 'ArrowRight') {
+      window.alert('You pressed the Right Arrow key!');
+    }
+  });
+</script>
+
+    
+   
+</body>
+</html>
