@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forEach Example</title>
+</head>
+<body>
+  <h1 style="text-decoration:underline;">forEach() Example</h1>
+  <div id="output"></div>
+  
+  <script>
+    const numbers = [1, 2, 3];
+    const output1 = document.createElement('p');
+    numbers.forEach((num) => {
+      output1.innerHTML += num + " ";
+    });
+    document.getElementById('output').appendChild(output1);
+    
+    
+    const fruits = ['Apple', 'Banana', 'Cherry'];
+    const output2 = document.createElement('p');
+    fruits.forEach((fruit) => {
+      output2.innerHTML += fruit + " ";
+    });
+    document.getElementById('output').appendChild(output2);
+    
+    
+    const animals = ['Dog', 'Cat', 'Rabbit'];
+    const output3 = document.createElement('p');
+    animals.forEach((animal, index) => {
+      output3.innerHTML += `(${index}: ${animal}) `;
+    });
+    document.getElementById('output').appendChild(output3);
+    
+    
+    const nums = [2, 4, 6];
+    const output4 = document.createElement('p');
+    nums.forEach((num) => {
+      output4.innerHTML += (num * 2) + " ";
+    });
+    document.getElementById('output').appendChild(output4);
+    </script>
+</body>
+</html>
