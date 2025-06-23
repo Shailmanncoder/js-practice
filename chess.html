@@ -64,7 +64,6 @@
     <option value="none">2 Player Mode</option>
     <option value="easy">AI: Easy</option>
     <option value="normal">AI: Normal</option>
-    <option value="hard">AI: Hard</option>
   </select>
   <div id="chessboard"></div>
   <div id="promotionModal"></div>
@@ -192,6 +191,32 @@
       return !checkKingDeath();
     }
 
+    function makeAIMove() {
+      if (aiLevel === "none" || currentTurn !== "black") return;
+      const moves = [];
+      for (let r1 = 0; r1 < 8; r1++) {
+        for (let c1 = 0; c1 < 8; c1++) {
+          const piece = boardState[r1][c1];
+          if (piece && getPieceColor(piece) === 'black') {
+            for (let r2 = 0; r2 < 8; r2++) {
+              for (let c2 = 0; c2 < 8; c2++) {
+                if (canMove([r1, c1], [r2, c2], piece)) {
+                  moves.push([[r1, c1], [r2, c2]]);
+                }
+              }
+            }
+          }
+        }
+      }
+      if (moves.length > 0) {
+        const move = moves[Math.floor(Math.random() * moves.length)];
+        makeMove(...move);
+        currentTurn = 'white';
+        turnDisplay.textContent = 'Turn: White';
+        createBoard();
+      }
+    }
+
     function createBoard() {
       board.innerHTML = '';
       for (let r = 0; r < 8; r++) {
@@ -208,10 +233,12 @@
                 selected = null;
                 currentTurn = currentTurn === 'white' ? 'black' : 'white';
                 turnDisplay.textContent = `Turn: ${currentTurn.charAt(0).toUpperCase() + currentTurn.slice(1)}`;
+                createBoard();
+                if (currentTurn === 'black') setTimeout(makeAIMove, 300);
               } else {
                 selected = null;
+                createBoard();
               }
-              createBoard();
             } else {
               if (piece && getPieceColor(piece) === currentTurn) {
                 selected = [r, c];
