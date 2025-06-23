@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chess with AI, Castling & Checkmate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+    #chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      width: 480px;
+      margin: 10px auto;
+      border: 2px solid black;
+    }
+    .square {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      color: black;
+    }
+    .white { background-color: #eee; }
+    .black { background-color: #444; }
+    .selected { outline: 3px solid yellow; }
+    .check { background-color: red !important; }
+    #restartBtn, #aiLevel {
+      margin: 10px 5px;
+      padding: 8px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #promotionModal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 2px solid #000;
+      padding: 20px;
+      z-index: 10;
+      display: none;
+    }
+    #promotionModal span {
+      margin: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>♟ Chess with AI, Castling & Checkmate</h1>
+  <div id="turn">Turn: White</div>
+  <button id="restartBtn">🔄 Restart</button>
+  <select id="aiLevel">
+    <option value="none">2 Player Mode</option>
+    <option value="easy">AI: Easy</option>
+    <option value="normal">AI: Normal</option>
+    <option value="hard">AI: Hard</option>
+  </select>
+  <div id="chessboard"></div>
+  <div id="promotionModal"></div>
+
+  <script>
+    const board = document.getElementById("chessboard");
+    const turnDisplay = document.getElementById("turn");
+    const restartBtn = document.getElementById("restartBtn");
+    const aiLevelSelect = document.getElementById("aiLevel");
+    const promotionModal = document.getElementById("promotionModal");
+
+    const defaultBoard = [
+      ['♜','♞','♝','♛','♚','♝','♞','♜'],
+      ['♟','♟','♟','♟','♟','♟','♟','♟'],
+      ['','','','','','','',''],
+      ['','','','','','','',''],
+      ['','','','','','','',''],
+      ['','','','','','','',''],
+      ['♙','♙','♙','♙','♙','♙','♙','♙'],
+      ['♖','♘','♗','♕','♔','♗','♘','♖']
+    ];
+
+    let boardState, selected, currentTurn, movedPieces, aiLevel;
+
+    function initializeGame() {
+      boardState = JSON.parse(JSON.stringify(defaultBoard));
+      selected = null;
+      currentTurn = 'white';
+      movedPieces = {};
+      aiLevel = aiLevelSelect.value;
+      turnDisplay.textContent = 'Turn: White';
+      createBoard();
+    }
+
+    function checkKingDeath() {
+      let whiteKingExists = false;
+      let blackKingExists = false;
+      for (let row of boardState) {
+        for (let piece of row) {
+          if (piece === '♔') whiteKingExists = true;
+          if (piece === '♚') blackKingExists = true;
+        }
+      }
+      if (!whiteKingExists || !blackKingExists) {
+        setTimeout(() => {
+          alert(!whiteKingExists ? 'Black wins! ♚' : 'White wins! ♔');
+        }, 100);
+        return true;
+      }
+      return false;
+    }
+
+    const getPieceColor = p => '♙♖♘♗♕♔'.includes(p) ? 'white' : 'black';
+
+    function canMove(from, to, piece) {
+      const [r1, c1] = from, [r2, c2] = to;
+      const dr = r2 - r1, dc = c2 - c1;
+      const target = boardState[r2][c2];
+      const color = getPieceColor(piece);
+      if (target && getPieceColor(target) === color) return false;
+      switch (piece) {
+        case '♙':
+          if (dr === -1 && dc === 0 && !target) return true;
+          if (r1 === 6 && dr === -2 && dc === 0 && !boardState[r1 - 1][c1] && !target) return true;
+          if (dr === -1 && Math.abs(dc) === 1 && target && getPieceColor(target) === 'black') return true;
+          break;
+        case '♟':
+          if (dr === 1 && dc === 0 && !target) return true;
+          if (r1 === 1 && dr === 2 && dc === 0 && !boardState[r1 + 1][c1] && !target) return true;
+          if (dr === 1 && Math.abs(dc) === 1 && target && getPieceColor(target) === 'white') return true;
+          break;
+        case '♖': case '♜':
+          if (dr === 0 || dc === 0) return isPathClear(from, to);
+          break;
+        case '♗': case '♝':
+          if (Math.abs(dr) === Math.abs(dc)) return isPathClear(from, to);
+          break;
+        case '♕': case '♛':
+          if (dr === 0 || dc === 0 || Math.abs(dr) === Math.abs(dc)) return isPathClear(from, to);
+          break;
+        case '♘': case '♞':
+          return (Math.abs(dr) === 2 && Math.abs(dc) === 1) || (Math.abs(dr) === 1 && Math.abs(dc) === 2);
+        case '♔': case '♚':
+          if (Math.abs(dr) <= 1 && Math.abs(dc) <= 1) return true;
+          if (!movedPieces[`${r1},${c1}`] && dr === 0 && Math.abs(dc) === 2) {
+            const rookCol = dc > 0 ? 7 : 0;
+            const rook = boardState[r1][rookCol];
+            if (rook && ((color === 'white' && rook === '♖') || (color === 'black' && rook === '♜')) && !movedPieces[`${r1},${rookCol}`]) {
+              return isPathClear([r1, c1], [r1, rookCol]);
+            }
+          }
+          break;
+      }
+      return false;
+    }
+
+    function isPathClear(from, to) {
+      let [r1, c1] = from;
+      let [r2, c2] = to;
+      const dr = Math.sign(r2 - r1);
+      const dc = Math.sign(c2 - c1);
+      r1 += dr;
+      c1 += dc;
+      while (r1 !== r2 || c1 !== c2) {
+        if (boardState[r1][c1]) return false;
+        r1 += dr;
+        c1 += dc;
+      }
+      return true;
+    }
+
+    function makeMove(from, to) {
+      const [r1, c1] = from, [r2, c2] = to;
+      const piece = boardState[r1][c1];
+      if (!canMove(from, to, piece)) return false;
+      if ((piece === '♔' || piece === '♚') && Math.abs(c2 - c1) === 2) {
+        const rookCol = c2 > c1 ? 7 : 0;
+        const newRookCol = c2 > c1 ? c2 - 1 : c2 + 1;
+        boardState[r2][newRookCol] = boardState[r1][rookCol];
+        boardState[r1][rookCol] = '';
+      }
+      boardState[r2][c2] = piece;
+      boardState[r1][c1] = '';
+      movedPieces[`${r1},${c1}`] = true;
+      return !checkKingDeath();
+    }
+
+    function createBoard() {
+      board.innerHTML = '';
+      for (let r = 0; r < 8; r++) {
+        for (let c = 0; c < 8; c++) {
+          const square = document.createElement('div');
+          square.className = `square ${(r + c) % 2 === 0 ? 'white' : 'black'}`;
+          square.textContent = boardState[r][c];
+          if (selected && selected[0] === r && selected[1] === c) square.classList.add('selected');
+          square.onclick = () => {
+            const piece = boardState[r][c];
+            if (selected) {
+              const from = selected, to = [r, c];
+              if (makeMove(from, to)) {
+                selected = null;
+                currentTurn = currentTurn === 'white' ? 'black' : 'white';
+                turnDisplay.textContent = `Turn: ${currentTurn.charAt(0).toUpperCase() + currentTurn.slice(1)}`;
+              } else {
+                selected = null;
+              }
+              createBoard();
+            } else {
+              if (piece && getPieceColor(piece) === currentTurn) {
+                selected = [r, c];
+                createBoard();
+              }
+            }
+          };
+          board.appendChild(square);
+        }
+      }
+    }
+
+    restartBtn.onclick = initializeGame;
+    aiLevelSelect.onchange = initializeGame;
+    window.onload = initializeGame;
+  </script>
+</body>
+</html>
